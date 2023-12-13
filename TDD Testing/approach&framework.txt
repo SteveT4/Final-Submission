@@ -1,0 +1,20 @@
+I used the Test-Driven Development or TDD approach. 
+
+  Test-driven development (TDD) is a software development approach where tests are written before the actual code is implemented. 
+  The TDD approach consists of a cycle commonly referred to as the "Red-Green-Refactor" cycle. 
+
+  Red: Write a Failing Test,
+  Green: Write the Minimum Code to Pass the Test,
+  Refactor: Improve Code Without Changing Behavior, such as adding comments for clarity.
+
+  TDD helps ensure that code is tested thoroughly 
+
+  I used the Jest framework, due to it being a popular choice for TDD. It provides a simple and efficient way to write and run tests.
+
+  Some of the key features of Jest Include:
+
+  * Test Suites and Test Cases: Jest organizes tests into suites and cases, making it easy to structure and manage tests.
+  * Expect Assertions: Jest uses the expect function for making assertions. I like the assertion here because it makes sense that there would be an expectation/expected result of a test.
+  * Snapshot Testing: helps detect unexpected changes in the output. It does this by capturing the output of a component or function and comparing it to a stored snapshot.
+  
+  As part of my testing I encountered a number of fails as per the TDD approach. I then wrote the code so the tests past. An example of this is documented in word document included.
