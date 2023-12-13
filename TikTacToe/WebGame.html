@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.CSS">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1><span class="multicolortext">Steve's Web Games!</span></h1>
+
+   
+    <div class="text-container">
+        <div><h2>Game Rules!</h2></div>
+        <div><p>Place an "X" or a "Circle" into an available square of your choice by clicking the left-hand mouse button.</p></div>
+        <div><p>The winner is the player who gets 3 "X's" or 3 "Circles" in a row in any direction.</p></div> 
+    </div>   
+
+   
+    <div class="board" id="board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+    </div>
+    <div class="winning-message" id="winningMessage">
+    <div data-winning-message-text></div>
+    <button id="restartButton">Restart</button>
+    </div>
+</body>
+</html>
