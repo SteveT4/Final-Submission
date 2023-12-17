@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Site</title>
+
+    <link rel="stylesheet" href="Photo.css">    
+</head>
+<body>
+
+<input type="radio" name="photos" id="check1" checked>
+<input type="radio" name="photos" id="check2">   
+<input type="radio" name="photos" id="check3">   
+<input type="radio" name="photos" id="check4">  
+
+
+
+<div class="container">
+    <h1>PHOTO SITE</h1>
+    <div id="container">
+
+    </div>
+    
+    <div class="content-container">
+        <div class="text-box">
+            <p>My name is Kent Adams. I am an aspiring young photographer from London. I have been taking photographs for 2 years now. Below is a collection of my photos, which I hope you enjoy.</p>
+        </div>
+        <div class="photo-box">
+            <img src="Photos/KentAdams.jpg" alt="Kent Adams">
+        </div>
+    </div>
+
+<div class="top-content">
+<h3>Gallery</h3>
+<label for="check1">All Photos</label>
+<label for="check2">Landscape Photos</label>
+<label for="check3">Nature Photos</label>
+<label for="check4">Planet Photos</label>
+</div>
+
+
+<div class="photo-gallery">
+<div class="pic planets" onclick="enlargePhoto(0)">
+         <img src="Photos/Earth.jpg" alt="Photo 1"> 
+</div>
+<div class="pic landscapes" onclick="enlargePhoto(1)">
+        <img src="Photos/Beach.jpg" alt="Photo 2"> 
+</div>
+<div class="pic nature" onclick="enlargePhoto(2)">
+    <img src="Photos/BumbleBee.jpg" alt="Photo 3">
+</div>
+<div class="pic planets" onclick="enlargePhoto(3)">
+    <img src="Photos/Mars.jpg" alt="Photo 4">
+</div>
+<div class="pic landscapes" onclick="enlargePhoto(4)">
+    <img src="Photos/Lake.jpg" alt="Photo 5">
+</div>
+<div class="pic nature" onclick="enlargePhoto(5)">
+    <img src="Photos/HummingBird.jpg" alt="Photo 6">
+</div>
+<div class="pic planets" onclick="enlargePhoto(6)">
+    <img src="Photos/Saturn.jpg" alt="Photo 7">
+</div>
+<div class="pic landscapes" onclick="enlargePhoto(7)">
+    <img src="Photos/Waterfall.jpg" alt="Photo 8">
+</div>
+<div class="pic nature" onclick="enlargePhoto(8)">
+    <img src="Photos/Leopard.jpg" alt="Photo 9">
+</div>
+<div class="pic planets" onclick="enlargePhoto(9)">
+    <img src="Photos/Jupiter.jpg" alt="Photo 10">
+</div>
+<div class="pic landscapes" onclick="enlargePhoto(10)"> 
+    <img src="Photos/Meadow.jpg" alt="Photo 11">
+</div>
+<div class="pic nature" onclick="enlargePhoto(11)">
+    <img src="Photos/Deer.jpg" alt="Photo 12">
+</div>
+<div class="pic planets" onclick="enlargePhoto(12)">
+    <img src="Photos/Mercury.jpg" alt="Photo 13">
+</div>
+<div class="pic landscapes" onclick="enlargePhoto(13)">
+    <img src="Photos/Jetty.jpg" alt="Photo 14">
+</div>
+<div class="pic nature" onclick="enlargePhoto(14)">
+    <img src="Photos/LadyBirds.jpg" alt="Photo 15">
+</div>
+<div class="pic planets" onclick="enlargePhoto(15)">
+    <img src="Photos/Venus.jpg" alt="Photo 16">
+</div>
+<div class="pic landscapes" onclick="enlargePhoto(16)">
+    <img src="Photos/Mountain.jpg" alt="Photo 17">
+</div>
+<div class="pic nature" onclick="enlargePhoto(17)">
+    <img src="Photos/Fox.jpg" alt="Photo 18">
+</div>
+<div class="pic planets" onclick="enlargePhoto(18)">
+    <img src="Photos/Neptune.jpg" alt="Photo 19">
+</div>
+<div class="pic landscapes" onclick="enlargePhoto(19)">
+    <img src="Photos/Sunrise.jpg" alt="Photo 20">
+</div>
+<div class="pic nature" onclick="enlargePhoto(20)">
+    <img src="Photos/Butterfly.jpg" alt="Photo 21">
+</div>
+<div class="pic planets" onclick="enlargePhoto(21)">
+    <img src="Photos/Pluto.jpg" alt="Photo 22">
+</div>
+   
+
+<div id="enlargedModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="enlargedPhoto" class="modal-content">
+    <a class="prev" onclick="changePhoto(-1)">&#10094;</a>
+    <a class="next" onclick="changePhoto(1)">&#10095;</a>
+</div>
+
+</div>    
+</div>
+
+
+<script>
+
+const photoSources = [
+    'Photos/Earth.jpg',
+    'Photos/Beach.jpg',
+    'Photos/BumbleBee.jpg', 
+    'Photos/Mars.jpg',
+    'Photos/Lake.jpg',
+    'Photos/HummingBird.jpg',
+    'Photos/Saturn.jpg',
+    'Photos/Waterfall.jpg', 
+    'Photos/Leopard.jpg',
+    'Photos/Jupiter.jpg',
+    'Photos/Meadow.jpg', 
+    'Photos/Deer.jpg', 
+    'Photos/Mercury.jpg',
+    'Photos/Jetty.jpg',
+    'Photos/LadyBirds.jpg', 
+    'Photos/Venus.jpg', 
+    'Photos/Mountain.jpg', 
+    'Photos/Fox.jpg', 
+    'Photos/Neptune.jpg', 
+    'Photos/Sunrise.jpg',
+    'Photos/Butterfly.jpg',
+    'Photos/Pluto.jpg',
+];
+
+let currentPhotoIndex = 0;
+
+function enlargePhoto(index) {
+    const modal = document.getElementById('enlargedModal');
+    const enlargedPhoto = document.getElementById('enlargedPhoto');
+
+    currentPhotoIndex = index;
+
+    enlargedPhoto.src = photoSources[currentPhotoIndex];
+    modal.style.display = 'block';   
+}
+
+function closeModal() {
+    const modal = document.getElementById('enlargedModal');
+    modal.style.display = 'none';
+}
+
+function changePhoto(direction) {
+    currentPhotoIndex += direction;
+
+    if (currentPhotoIndex < 0) {
+        currentPhotoIndex = photoSources.length - 1;
+    } else if (currentPhotoIndex >= photoSources.length) {
+        currentPhotoIndex = 0;
+    }
+
+    enlargePhoto(currentPhotoIndex);
+}
+
+
+</script>
+
+<script src="heading.js"></script>
+</body>
+</html>
